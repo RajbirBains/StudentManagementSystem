@@ -29,9 +29,24 @@ public class Student {
 
     }
 
-
     // Grade level + ID
     private void generateStudentID(){
         this.studentID = this.gradeYear + "" + this.id;
+    }
+
+    public void enroll(){
+        Scanner in = new Scanner(System.in);
+        String course = "";
+        do {
+            System.out.print("Enter course to enroll. (Q to quit) ");
+            course = in.next();
+            if(!course.equals("Q")){
+                this.courses = this.courses + "\n" + course;
+                this.tuitionBalance += costOfCourse;
+            }
+        }while (!course.equals("Q"));
+
+        System.out.println("ENROLLED IN " + this.courses);
+        System.out.println("TUITION BALANCE DUE " + this.tuitionBalance);
     }
 }

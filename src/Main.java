@@ -6,5 +6,7 @@ public class Main {
         System.out.println("Student database App");
 
         Student s1 = new Student();
+
+        s1.enroll();
     }
 }
