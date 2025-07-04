@@ -5,10 +5,10 @@ public class Student {
     private String lastName;
     private String courses;
     private int gradeYear;
-    private int studentID;
+    private String studentID;
     private int tuitionBalance;
-    private int costOfCourse = 800;
-
+    private static int costOfCourse = 800; // Static = not specific to object (Isn't bound to certain instance, remains for all objects of Student)
+    private static int id = 100;
     public Student(){
         Scanner in = new Scanner(System.in);
 
@@ -21,6 +21,17 @@ public class Student {
         System.out.println("1 - 1st year \n2 - 2nd year \n3 - 3rd year \n4 - 4th year \nEnter Student Grad level: ");
         this.gradeYear = in.nextInt();
 
-        System.out.println("Name is " + this.firstName + " " + this.lastName + " and in year " + this.gradeYear);
+
+        id++; // Since ID is static, it will increment differently depending on instance
+        generateStudentID();
+
+        System.out.println("Name is " + this.firstName + " " + this.lastName + " and in year " + this.gradeYear + "and student ID " + this.studentID);
+
+    }
+
+
+    // Grade level + ID
+    private void generateStudentID(){
+        this.studentID = this.gradeYear + "" + this.id;
     }
 }
